@@ -8,17 +8,17 @@ function model(sequelize) {
         passwordHash: { type: DataTypes.STRING, allowNull: false },
         title: { type: DataTypes.STRING, allowNull: false },
         firstName: { type: DataTypes.STRING, allowNull: false },
-        lastName: { type: DataTypes.STRING, allowNull: false },  // Fixed casing (lastName instead of LastName)
+        lastName: { type: DataTypes.STRING, allowNull: false },
         role: { type: DataTypes.STRING, allowNull: false }
     };
 
     const options = {
         defaultScope: {
-            // Exclude password hash by default
+            // exclude password hash by default
             attributes: { exclude: ['passwordHash'] }
         },
         scopes: {
-            // Include hash with this scope
+            // include hash with this scope
             withHash: { attributes: {} }
         }
     };
